@@ -26,10 +26,7 @@ RUN chmod 500 /exam && \
 
 # Student working directories
 RUN mkdir -p /home/student/TestFolder \
-    /home/student/common \
-    /home/student/Documents \
-    /home/student/Videos \
-    /shared
+    
 
 RUN chown -R student:student /home/student
 
