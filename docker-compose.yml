@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+
+  student1:
+    image: linux-exam:v1
+    container_name: student1
+    ports:
+      - "2222:22"
+
+  student2:
+    image: linux-exam:v1
+    container_name: student2
+    ports:
+      - "2223:22"
