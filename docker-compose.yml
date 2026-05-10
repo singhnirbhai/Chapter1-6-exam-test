@@ -1,4 +1,3 @@
-
 services:
 
   deval-gohil:
@@ -6,18 +5,21 @@ services:
     container_name: deval-gohil
     hostname: deval-gohil
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2201:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -26,18 +28,21 @@ services:
     container_name: dharm-sonagra
     hostname: dharm-sonagra
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2202:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -46,18 +51,21 @@ services:
     container_name: dhruv-patel
     hostname: dhruv-patel
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2203:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -66,18 +74,21 @@ services:
     container_name: frenny-rudani
     hostname: frenny-rudani
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2204:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -86,18 +97,21 @@ services:
     container_name: herry-patel
     hostname: herry-patel
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2205:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -106,18 +120,21 @@ services:
     container_name: het-patel
     hostname: het-patel
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2206:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -126,18 +143,21 @@ services:
     container_name: hitesh-jogi
     hostname: hitesh-jogi
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2207:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -146,18 +166,21 @@ services:
     container_name: kavan-prajapati
     hostname: kavan-prajapati
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2208:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -166,18 +189,21 @@ services:
     container_name: ketul-patel
     hostname: ketul-patel
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2209:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -186,18 +212,21 @@ services:
     container_name: parshwa-jinesh-shah
     hostname: parshwa-jinesh-shah
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2210:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -206,18 +235,21 @@ services:
     container_name: radhe-patel
     hostname: radhe-patel
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2211:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -226,18 +258,21 @@ services:
     container_name: sadhu-saichandram
     hostname: sadhu-saichandram
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2212:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
 
@@ -246,17 +281,20 @@ services:
     container_name: shrushti-patel
     hostname: shrushti-patel
     privileged: true
-    tty: true
-    stdin_open: true
     ports:
       - "2213:22"
+    tty: true
+    stdin_open: true
     command: >
-      /bin/bash -c "
-      dnf install -y openssh-server passwd sudo &&
+      bash -c "
+      dnf install -y openssh-server sudo passwd acl vim net-tools iproute procps-ng &&
+      mkdir -p /run/sshd &&
       ssh-keygen -A &&
       echo 'root:Redhat@123' | chpasswd &&
-      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
-      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/^#PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^#PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config &&
+      echo 'UsePAM no' >> /etc/ssh/sshd_config &&
       /usr/sbin/sshd -D
       "
