@@ -1,15 +1,262 @@
-version: "3.9"
 
 services:
 
-  student1:
-    image: linux-exam:v1
-    container_name: student1
+  deval-gohil:
+    image: rockylinux:9
+    container_name: deval-gohil
+    hostname: deval-gohil
+    privileged: true
+    tty: true
+    stdin_open: true
     ports:
-      - "2222:22"
+      - "2201:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
 
-  student2:
-    image: linux-exam:v1
-    container_name: student2
+  dharm-sonagra:
+    image: rockylinux:9
+    container_name: dharm-sonagra
+    hostname: dharm-sonagra
+    privileged: true
+    tty: true
+    stdin_open: true
     ports:
-      - "2223:22"
+      - "2202:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  dhruv-patel:
+    image: rockylinux:9
+    container_name: dhruv-patel
+    hostname: dhruv-patel
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2203:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  frenny-rudani:
+    image: rockylinux:9
+    container_name: frenny-rudani
+    hostname: frenny-rudani
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2204:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  herry-patel:
+    image: rockylinux:9
+    container_name: herry-patel
+    hostname: herry-patel
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2205:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  het-patel:
+    image: rockylinux:9
+    container_name: het-patel
+    hostname: het-patel
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2206:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  hitesh-jogi:
+    image: rockylinux:9
+    container_name: hitesh-jogi
+    hostname: hitesh-jogi
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2207:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  kavan-prajapati:
+    image: rockylinux:9
+    container_name: kavan-prajapati
+    hostname: kavan-prajapati
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2208:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  ketul-patel:
+    image: rockylinux:9
+    container_name: ketul-patel
+    hostname: ketul-patel
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2209:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  parshwa-jinesh-shah:
+    image: rockylinux:9
+    container_name: parshwa-jinesh-shah
+    hostname: parshwa-jinesh-shah
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2210:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  radhe-patel:
+    image: rockylinux:9
+    container_name: radhe-patel
+    hostname: radhe-patel
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2211:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  sadhu-saichandram:
+    image: rockylinux:9
+    container_name: sadhu-saichandram
+    hostname: sadhu-saichandram
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2212:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
+
+  shrushti-patel:
+    image: rockylinux:9
+    container_name: shrushti-patel
+    hostname: shrushti-patel
+    privileged: true
+    tty: true
+    stdin_open: true
+    ports:
+      - "2213:22"
+    command: >
+      /bin/bash -c "
+      dnf install -y openssh-server passwd sudo &&
+      ssh-keygen -A &&
+      echo 'root:Redhat@123' | chpasswd &&
+      sed -i 's/#PermitRootLogin yes/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config ;
+      sed -i 's/#PasswordAuthentication yes/PasswordAuthentication yes/g' /etc/ssh/sshd_config ;
+      /usr/sbin/sshd -D
+      "
